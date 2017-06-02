@@ -770,6 +770,7 @@ $(TX_RC):
 	$(PRERULE_CMD)
 	mkdir -p $(dir $@)
 	sleep 1 # To be sure that the creation date should be after the .transifexrc file. (the $(TOUCHBACK_TXRC) lost the ms)
+	cat .tx/config
 	$(VENV_BIN)/tx pull --language $* --resource ngeo.gmf-$(TX_VERSION) --force
 	$(TOUCHBACK_TXRC)
 	test -s $@
@@ -779,6 +780,7 @@ $(TX_RC):
 	$(PRERULE_CMD)
 	mkdir -p $(dir $@)
 	sleep 1 # To be sure that the creation date should be after the .transifexrc file. (the $(TOUCHBACK_TXRC) lost the ms)
+	cat .tx/config
 	$(VENV_BIN)/tx pull --language $* --resource ngeo.ngeo-$(TX_VERSION) --force
 	$(TOUCHBACK_TXRC)
 	test -s $@
